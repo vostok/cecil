@@ -87,7 +87,7 @@ namespace Mono.Cecil.PE {
 				win32_resources = new ByteBuffer(module.Win32Resources);
 				return;
 			}
-			if (module.Win32ResourceDirectory != null)
+			if (module.Win32ResourceDirectory != null && module.Win32ResourceDirectory.Entries.Count > 0)
 			{
 				win32_resources_directory = module.Win32ResourceDirectory;
 				return;
@@ -138,7 +138,7 @@ namespace Mono.Cecil.PE {
 
 				PatchWin32Resources (win32_resources);
 				previous = rsrc;
-			} else if (win32_resources_directory != null) {
+			} else if (win32_resources_directory != null && win32_resources_directory.Entries.Count > 0) {
 				rsrc = CreateSection(".rsrc", previous);
 
 				WriteWin32ResourcesDirectory(win32_resources_directory);
