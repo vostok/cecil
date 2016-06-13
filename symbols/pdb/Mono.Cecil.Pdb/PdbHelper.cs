@@ -38,6 +38,9 @@ namespace Mono.Cecil.Pdb {
 		}
 	}
 
+    class PreserveAttribute : Attribute { }
+
+    [Preserve]
 	public class PdbReaderProvider : ISymbolReaderProvider {
 
 		public ISymbolReader GetSymbolReader (ModuleDefinition module, string fileName)
@@ -53,6 +56,7 @@ namespace Mono.Cecil.Pdb {
 
 #if !READ_ONLY
 
+    [Preserve]
 	public class PdbWriterProvider : ISymbolWriterProvider {
 
 		public ISymbolWriter GetSymbolWriter (ModuleDefinition module, string fileName)
