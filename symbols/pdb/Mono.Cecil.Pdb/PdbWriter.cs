@@ -249,8 +249,8 @@ namespace Mono.Cecil.Pdb {
 						using (new PdbBinaryStreamWriterSizeHelper (metadata)) {
 							metadata.WriteInt32 (pdbSymbols.IteratorScopes.Count);
 							foreach (var scope in pdbSymbols.IteratorScopes) {
-								metadata.WriteInt32 (scope.Start.Offset);
-								metadata.WriteInt32 (scope.End.Offset);
+								metadata.WriteInt32 (scope.Start?.Offset ?? 0);
+								metadata.WriteInt32 (scope.End?.Offset ?? 0);
 							}
 						}
 					}

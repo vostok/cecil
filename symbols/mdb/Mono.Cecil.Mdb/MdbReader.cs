@@ -18,9 +18,11 @@ using Mono.CompilerServices.SymbolWriter;
 
 namespace Mono.Cecil.Mdb {
 
-    class PreserveAttribute : Attribute { }
+    class PreserveAttribute : Attribute {
+        public bool AllMembers;
+    }
 
-    [Preserve]
+    [Preserve(AllMembers = true)]
 	public class MdbReaderProvider : ISymbolReaderProvider {
 
 		public ISymbolReader GetSymbolReader (ModuleDefinition module, string fileName)

@@ -21,6 +21,7 @@ namespace Mono.Cecil.Pdb {
 	[Guid ("0B97726E-9E6D-4f05-9A26-424022093CAA")]
 	[InterfaceType (ComInterfaceType.InterfaceIsIUnknown)]
 	[ComImport]
+    [Preserve(AllMembers = true)]
 	interface ISymUnmanagedWriter2 {
 
 		void DefineDocument (

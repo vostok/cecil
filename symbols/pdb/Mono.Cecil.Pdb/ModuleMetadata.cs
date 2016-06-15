@@ -8,6 +8,7 @@ using System.Text;
 namespace Mono.Cecil.Pdb {
 
 	[ComImport, InterfaceType (ComInterfaceType.InterfaceIsIUnknown), Guid ("BA3FEE4C-ECB9-4e41-83B7-183FA41CD859")]
+    [Preserve(AllMembers = true)]
 	interface IMetaDataEmit {
 		void SetModuleProps (string szName);
 		void Save (string szFile, uint dwSaveFlags);
@@ -65,6 +66,7 @@ namespace Mono.Cecil.Pdb {
 	}
 
 	[ComImport, InterfaceType (ComInterfaceType.InterfaceIsIUnknown), Guid ("7DAC8207-D3AE-4c75-9B67-92801A497D44")]
+    [Preserve(AllMembers = true)]
 	interface IMetaDataImport {
 		[PreserveSig]
 		void CloseEnum (uint hEnum);
