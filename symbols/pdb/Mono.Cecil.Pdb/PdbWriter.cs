@@ -81,7 +81,13 @@ namespace Mono.Cecil.Pdb {
 		        DefineUsedNamespaces ((PdbMethodSymbols)body.Symbols);
 
 			foreach (var s in scope.Scopes)
+            {
+                // invalid nested scopes will throw in unmanaged PdbWriter, skip 'em
+                if (s.Start.Offset < start_offset || s.Start.Offset > end_offset)
+                    continue;
+
 				WriteScope (body, s, false);
+            }
 
 			DefineVariables   (body, scope.Variables, start_offset, end_offset);
 			writer.CloseScope (end_offset);
