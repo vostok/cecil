@@ -83,7 +83,6 @@ namespace Mono.Cecil.PE {
 		{
 			if (module.Win32Resources != null)
 			{
-				win32_rva = module.Win32RVA;
 				win32_resources = new ByteBuffer(module.Win32Resources);
 				return;
 			}

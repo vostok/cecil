@@ -975,7 +975,8 @@ namespace Mono.Cecil {
 					else
 					{
 						var rsrc = Image.GetSection(".rsrc");
-						win32ResourceDirectory = RsrcReader.ReadResourceDirectory(rsrc.Data, rsrc.VirtualAddress);
+                        var reader = Image.GetReaderAt(rsrc.VirtualAddress);
+						win32ResourceDirectory = RsrcReader.ReadResourceDirectory(reader.ReadBytes((int)rsrc.SizeOfRawData), rsrc.VirtualAddress);
 					}
 				}
 				return win32ResourceDirectory;
